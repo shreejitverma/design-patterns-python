@@ -155,9 +155,7 @@ class Composite(Component):
         далее, в результате обходится всё дерево объектов.
         """
 
-        results = []
-        for child in self._children:
-            results.append(child.operation())
+        results = [child.operation() for child in self._children]
         return f"Branch({'+'.join(results)})"
 
 

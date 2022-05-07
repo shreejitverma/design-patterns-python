@@ -59,10 +59,7 @@ class AbstractHandler(Handler):
 
     @abstractmethod
     def handle(self, request: Any) -> str:
-        if self._next_handler:
-            return self._next_handler.handle(request)
-
-        return None
+        return self._next_handler.handle(request) if self._next_handler else None
 
 
 """
@@ -110,8 +107,7 @@ def client_code(handler: Handler) -> None:
 
     for food in ["Nut", "Banana", "Cup of coffee"]:
         print(f"\nClient: Who wants a {food}?")
-        result = handler.handle(food)
-        if result:
+        if result := handler.handle(food):
             print(f"  {result}", end="")
         else:
             print(f"  {food} was left untouched.", end="")

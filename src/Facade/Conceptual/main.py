@@ -52,11 +52,14 @@ class Facade:
         подсистем. Однако клиенты получают только часть возможностей подсистемы.
         """
 
-        results = []
-        results.append("Facade initializes subsystems:")
-        results.append(self._subsystem1.operation1())
-        results.append(self._subsystem2.operation1())
-        results.append("Facade orders subsystems to perform the action:")
+        results = ["Facade initializes subsystems:", self._subsystem1.operation1()]
+        results.extend(
+            (
+                self._subsystem2.operation1(),
+                "Facade orders subsystems to perform the action:",
+            )
+        )
+
         results.append(self._subsystem1.operation_n())
         results.append(self._subsystem2.operation_z())
         return "\n".join(results)

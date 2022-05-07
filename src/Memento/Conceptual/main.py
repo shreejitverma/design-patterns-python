@@ -122,7 +122,7 @@ class ConcreteMemento(Memento):
         RU: Остальные методы используются Опекуном для отображения метаданных.
         """
 
-        return f"{self._date} / ({self._state[0:9]}...)"
+        return f"{self._date} / ({self._state[:9]}...)"
 
     def get_date(self) -> str:
         return self._date

@@ -59,12 +59,7 @@ class Creator(ABC):
         # RU: Вызываем фабричный метод, чтобы получить объект-продукт.
         product = self.factory_method()
 
-        # EN: Now, use the product.
-        #
-        # RU: Далее, работаем с этим продуктом.
-        result = f"Creator: The same creator's code has just worked with {product.operation()}"
-
-        return result
+        return f"Creator: The same creator's code has just worked with {product.operation()}"
 
 
 """
